@@ -28,6 +28,28 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
+    
+    @IBAction func nextButtonPressed(sender: UIBarButtonItem) {
+        
+        var randomIndex = Int(arc4random_uniform(UInt32(100))) 
+        
+        let balloon = self.balloons[randomIndex];
+        
+        self.numberLabel.text = "Balloon number: \(balloon.number)"
+        if self.numberLabel.hidden == true {
+            
+            self.numberLabel.hidden = false;
+        }
+        
+        self.backgroundImage.image = balloon.image
+        
+
+        
+        
+    }
+    
+// MARK helper functions
     
     func createBalloons() {
         
@@ -45,28 +67,6 @@ class ViewController: UIViewController {
         
         
     }
-    
-    
-    @IBAction func nextButtonPressed(sender: UIBarButtonItem) {
-        
-        var randomIndex = Int(arc4random_uniform(UInt32(99))) + 1
-        
-        let balloon = self.balloons[randomIndex];
-        
-        self.numberLabel.text = "Balloon number: \(balloon.number)"
-        if self.numberLabel.hidden == true {
-            
-            self.numberLabel.hidden = false;
-        }
-        
-        self.backgroundImage.image = balloon.image
-        
-
-        
-        
-    }
-    
-
 
 }
 
